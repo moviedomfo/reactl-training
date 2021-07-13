@@ -3,8 +3,8 @@ import React from "react";
 const GridExplicita2 = () => {
   return (
     <div className="App-header">
-
-        <section className="container grid-explicita2">
+      <h1>Posicionamiento con Grid Lines</h1>
+        <section className="container grid-grid-explicita2">
 
           <div className="col one">One</div>
           <div className="col two">
@@ -31,6 +31,7 @@ const GridExplicita2 = () => {
           <div className="col  ">14</div>
           <div className="col  ">15</div>
           <div className="col  ">16</div>
+          <div className="col  ">17</div><div className="col  ">18</div>
         </section>
       
     </div>

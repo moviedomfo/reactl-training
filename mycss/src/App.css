@@ -60,8 +60,8 @@
  
 }
 
-/* Busca el item 10  */
-
+/*Posicionar los elementos Busca el item 10 
+Este comportamoento mueve el item */
 .grid-explicita2 .col:nth-child(10){
 
   color: rgb(244, 255, 205) ;
@@ -71,24 +71,65 @@
   grid-row-end:3;
   grid-column-start:2;
   grid-column-end:3;
-
-  
-    /* grid-row: 2/3; */
-    /* Que ocupe mas espacio  grid-column: 3/5*/
+ 
+  grid-row: 2/3;
+  /* Que ocupe mas espacio  grid-column: 3/5*/
   grid-column: 3/5;  
 
+  /* grid-area:  grid-row-start/grid-row-end/ grid-column-start/ grid-column-end
+  grid-area:2/3/3/5; /*Es un atajo a lo anterior grid-row y grid-column */
 }
+
+/* span: tambien sirve para pocicionar 
+ Aqui trataremos de hacer q el elemento 12 ocupe desde donde se encuentra. 
+ 3 celdas en columnas 
+ y en filas que ocupe dos */
+.grid-explicita2 .col:nth-child(12){
+ 
+  color: rgb(244, 255, 205) ;
+  background-color: darkolivegreen;
+  column-span: 3;
+   grid-row: span 2; /*abarca desde donde estas, 2 filas */
+   grid-column: span 3;
+}
+
+
 .col{
   background-color: #c62828 ;
   /* border-radius: 20px; */
   padding-left: 5px;
 }
+.item{
+  background-color: #c62828 ;
+  /* border-radius: 20px; */
+  padding-left: 5px;
+}
 
-/* @keyframes App-logo-spin {
+.grid-nombres{
+  display: grid;
+
+  /* grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr); */
+  /* Grid de 3cx3r nombradas Hay qu enombrar linea por linea */
+/* Es lo mismo que lo que esta definido arriba */
+  grid-template-columns:  [linea-c1] 1fr [linea-c2] 1fr [linea-c3] 1fr [linea-c4];
+  grid-template-rows:  [linea-r1] 1fr [linea-r2] 1fr [linea-r3] 1fr [linea-r4]; 
+  grid-template-rows:  [linea-r1] auto [linea-r2] auto [linea-r3] auto [linea-r4]; /*para que queden todas parejas */
+  grid-gap: 10px; 
+}
+
+.grid-nombres .col:nth-child(3){
+  color: #61dafb;
+  background-color: cornflowerblue;
+  grid-row: linea-r3 / linea-r4;
+  grid-column: linea-c2 / linea-c4; 
+}
+
+@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-} */
+}
