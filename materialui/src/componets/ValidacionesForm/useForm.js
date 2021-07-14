@@ -1,7 +1,7 @@
 // metemos en este custom hoock la lógica que va a usar contact Form
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { helpHttp } from "../componets/helpers/helpHttp";
+import { helpHttp } from "../helpers/helpHttp";
 
 
 export const useForm = (initialForm, validateForm) => {
