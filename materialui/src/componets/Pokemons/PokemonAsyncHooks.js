@@ -4,6 +4,8 @@ import React, { useState, useEffect, Fragment } from 'react'
 import Pokemon from './Pokemon';
 
 const url = 'https:pokeapi.co/api/v2/pokemon/' ;
+
+
 // Componente de Funcion : no existe this por lo que no podemos asignar o leer this.state
 const  PokemonAsyncHooks =  ()  => {
 

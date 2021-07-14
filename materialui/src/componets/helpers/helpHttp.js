@@ -49,33 +49,7 @@ export const helpHttp = () => {
       controller.abort();
     }, TIMEOUT);
 
-    // return fetch(url,options).then(
-    //     res=> {
-    //         if(res.ok){
-
-    //              Promise.resolve(res);
-
-    //         }
-    //         else{
-
-    //             Promise.reject({
-    //                 err:true,
-    //                 message: res.error.message || '',
-    //                 httpStatus : res.error.status || 501,
-    //                 statusText : res.error.statusText || 'Ocurrio un error',
-    //             });
-
-    //         }
-    //     }
-    // )
-    // .catch((err)=>{
-    //     Promise.reject({
-    //         err:true,
-    //         message: err.message || '',
-    //         httpStatus : err.status || 501,
-    //         statusText : err.statusText || 'Ocurrio un error',
-    //     });
-    // });
+    
 
     return fetch(url, options)
     .then((res) =>

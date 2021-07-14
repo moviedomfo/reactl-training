@@ -1,46 +1,115 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import { useForm } from '../../hooks/useForm'
+import React, {  } from "react";
+import { useForm } from "../../hooks/useForm";
+import Loader from "../Loader";
+import Message from "../Message";
 
-const  initialForm =  {nombre:'',correo:null}
-const validationForm = (form)=>{ }
+let styles = {
+    fontWeight: "bold",
+    color: "#dc3545",
+  };
+const initialForm = {
+    name: "",
+    email: "",
+    subject: "",
+    comments: "",
+  };
 
-
-const FormularioContacto = (initialForm) => {
-
-    const {form,error,loading,response,
-        handleBlur,
-        handleChange,
-        handleSubmit} = useForm(initialForm,validationForm);
-      
-   
-
+const validationForm = (form) => {
   
-    return (
-        <>
-            <h2>Formulario de contacto</h2>
-            <form onSubmit={handleSubmit} >
+  const errors = {};
+  let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+  let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+  let regexComments = /^.{1,255}$/;
 
-            <label htmlFor="nombre" >Nombre</label>
-               <input type="text" id="nombre" 
-                name = "nombre"
-                value={form.nombre}
-                onChange={handleChange}
-                onBlur= {handleBlur} // cuando pierde foco
-                requerido></input>
+  if(!form.name.trim()){
+    errors.name = 'Nombre es requerido';
+  }
 
-                <label htmlFor="email" >Correo</label>
-               <input type="email" id="email" 
-                name = "email"
-                value={form.email}
-                onChange={handleChange}
-                onBlur= {handleBlur} // cuando pierde foco
-                requerido></input>
+  if(!errors.name && !regexName.test(form.name.trim())){
+    errors.name = 'Nombre solo acepta letras y espacios en blanco';
+  }
 
-            <input type="submit" value="Aceptar"></input>
+  if(!form.email.trim()){
+    errors.email = 'Email es requerido';
+  }
 
-            </form>
-        </>
-    )
-}
+  if(!errors.email &&  !regexEmail.test (form.email)){
+    errors.email = 'Formato de email no es correcto';
+  }
 
-export default FormularioContacto
+  if(!form.comments.trim()){
+    errors.comments = 'Comentario es requerido';
+  }
+
+  if(!errors.comments &&  !regexComments.test (form.comments)){
+    errors.comments = 'Formato de comentario no es correcto';
+  }
+  return errors;
+  
+
+};
+
+const FormularioContacto = () => {
+ 
+  const {
+    form,
+    errors,
+    loading,
+    response,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useForm(initialForm, validationForm);
+
+  return (
+    <div>
+      <h2>Formulario de contacto</h2>
+      <h3>response {response ? 'SI RESPONSE' : 'NO RESPONSE'}</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="nombre">Nombre</label>
+        <input
+          type="text"
+          placeholder="Escribe tu nombre"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          onBlur={handleBlur} // cuando pierde foco
+          required
+        ></input>
+        {/* conditional render short circuit */}
+        {errors.name && <p style={styles}>{errors.name}</p>}
+
+        <label htmlFor="email">Correo</label>
+        <input
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          onBlur={handleBlur} // cuando pierde foco
+          required
+        ></input>
+        {errors.email && <p style={styles}>{errors.email}</p>}
+
+        <textarea
+          name="comments"
+          cols="50"
+          rows="5"
+          placeholder="Escribe tus comentarios"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          value={form.comments}
+          required
+        ></textarea>
+        {errors.comments && <p style={styles}>{errors.comments}</p>}
+        <input type="submit" value="Aceptar"></input>
+      </form>
+      {loading && <Loader />}
+      {response && (
+        <Message msg="Los datos han sido enviados" isError = 'false' bgColor="#198754" />
+      )}
+      
+      </div>
+  );
+};
+
+export default FormularioContacto;
