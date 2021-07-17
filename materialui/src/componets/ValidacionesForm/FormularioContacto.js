@@ -1,7 +1,9 @@
 import React, {  } from "react";
+
 import Loader from "../Loader";
 import Message from "../Message";
 import Modal from "../modal/Modal";
+import ModalPortal from "../modal/ModalPortal";
 import useModal from "../modal/useModal";
 import { useForm } from "./useForm";
 
@@ -58,7 +60,7 @@ const FormularioContacto = () => {
   const [isOpenModal1, openModal1,closeModal1]=useModal (false);
   
   const [isOpenModal2, openModal2,closeModal2]=useModal (false);
-
+  const [isOpenModalPortal, openModalPortal,closeModalPortal]=useModal (false);
   const {
     form,
     errors,
@@ -135,6 +137,19 @@ const FormularioContacto = () => {
         </p>
         <img src="https://placeimg.com/400/400/nature" alt="Nature" />
       </Modal>
+
+
+
+      <button onClick={openModalPortal}>Modal Portal</button>
+      <ModalPortal isOpen={isOpenModalPortal} closeModal={closeModalPortal}>
+        <h3> Modal Portal portal</h3>
+        <p>
+         Contenido de modal que carga en otro modo del DOM diferente 
+         de donde carga React gracias a React Portal
+        </p>
+        <img src="https://placeimg.com/400/400/tec" alt="Nature" />
+      </ModalPortal>
+
 
       </div>
   );
