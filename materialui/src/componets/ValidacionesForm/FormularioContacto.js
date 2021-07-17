@@ -1,7 +1,7 @@
 import React, {  } from "react";
-import { useForm } from "../../hooks/useForm";
 import Loader from "../Loader";
 import Message from "../Message";
+import { useForm } from "./useForm";
 
 let styles = {
     fontWeight: "bold",
