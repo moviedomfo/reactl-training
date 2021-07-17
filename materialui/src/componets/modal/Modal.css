@@ -1,13 +1,14 @@
+/* opacidad nogrto 0.75*/
 .modal {
     position: fixed;
     z-index: 999;
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+     min-height: 100vh; 
     background-color: rgba(0, 0, 0, 0.75);
     display: none;
-    justify-content: center;
+    justify-content: center; /*justivicar su contenido*/
     align-items: center;
   }
   
@@ -23,11 +24,11 @@
   }
   
   .modal-close {
-    position: absolute;
+     position: absolute;/* si encuentra un padre se posiciona respecto de el sino respecto del html */
     top: 1rem;
     right: 1rem;
   }
-  
+  /* cuando tenga modal y is-open aplica display */
   .modal.is-open {
     display: flex;
   }

@@ -1,6 +1,8 @@
 import React, {  } from "react";
 import Loader from "../Loader";
 import Message from "../Message";
+import Modal from "../modal/Modal";
+import useModal from "../modal/useModal";
 import { useForm } from "./useForm";
 
 let styles = {
@@ -16,6 +18,8 @@ const initialForm = {
 
 const validationForm = (form) => {
   
+  
+
   const errors = {};
   let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
   let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
@@ -50,7 +54,11 @@ const validationForm = (form) => {
 };
 
 const FormularioContacto = () => {
- 
+  
+  const [isOpenModal1, openModal1,closeModal1]=useModal (false);
+  
+  const [isOpenModal2, openModal2,closeModal2]=useModal (false);
+
   const {
     form,
     errors,
@@ -107,7 +115,27 @@ const FormularioContacto = () => {
       {response && (
         <Message msg="Los datos han sido enviados" isError = 'false' bgColor="#198754" />
       )}
-      
+
+      <button onClick= {openModal1} >Show modal 1</button>
+      <Modal isOpen = {isOpenModal1} closeModal={closeModal1} >
+          <h2>Modal 1</h2>
+          <p>Arquímedes o Arquímides, de Siracusa fue un físico, 
+            ingeniero, inventor, astrónomo y matemático griego. 
+            Aunque se conocen pocos detalles de su vida</p>
+
+      </Modal>
+      <button onClick={openModal2}>Modal 2</button>
+      <Modal isOpen={isOpenModal2} closeModal={closeModal2}>
+        <h3>Otro Modal</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa maiores
+          eum minima earum atque aut blanditiis, cumque eius! Eius nobis odit
+          tempora aperiam quod obcaecati repellendus optio voluptas numquam
+          necessitatibus?
+        </p>
+        <img src="https://placeimg.com/400/400/nature" alt="Nature" />
+      </Modal>
+
       </div>
   );
 };
