@@ -8,6 +8,7 @@ import {
 import Contacts from './Contacts';
 import Error404 from './Error404';
 import Home from './Home';
+import MenuConceptos from './MenuConceptos';
 import Persons from './Persons';
 import Products from './Products';
 
@@ -15,25 +16,7 @@ const MainContainer = () => {
     return (
         <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/contacts">Contacts</Link>
-            </li>
-            <li>
-              <Link to="/products">Products</Link>
-            </li>
-            <li>
-              <Link to="/persons">Persons</Link>
-            </li>
-            <li>
-              <Link to="/sales">Sales not fount</Link>
-            </li>
-          </ul>
-        </nav>
+        <MenuConceptos></MenuConceptos>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL.
