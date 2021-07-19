@@ -32,7 +32,10 @@ const MainContainer = () => {
           <Route exact path="/products">
             <Products />
           </Route>
-          <Route exact path="/persons" children={<Persons/>} />            
+          <Route exact path="/persons" children={<Persons/>} />   
+          {/* to allow http://localhost:3000/persons/olecram          */}
+          <Route exact path="/persons/:username" children={<Persons/>} />        
+          {/* <Route exact path="/persons/:userName" children={<Persons/>} />      */}
           <Route path="*" component={Error404} />            
       
         
