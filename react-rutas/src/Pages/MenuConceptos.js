@@ -2,13 +2,13 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 // Link -> Evita que se cargue todo el DOM . nuevo renderizado
-// NavLink -> permite active clase 
+// NavLink -> permite active clase
 const MenuConceptos = () => {
   return (
     <nav>
       <ul>
-      <li>
-          <a href = "/">Home carga todo e dom (no recomendado)</a>
+        <li>
+          <a href="/">Home carga todo e dom (no recomendado)</a>
         </li>
         <li>
           <Link to="/">Home</Link>
@@ -20,12 +20,25 @@ const MenuConceptos = () => {
           <Link to="/products">Products</Link>
         </li>
         <li>
-          <NavLink to="/persons" activeClassName="active">Persons</NavLink>
+          <NavLink to="/persons" activeClassName="active">
+            Persons
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/sales" activeClassName="active">Sales not fount</NavLink>
+          <NavLink to="/sales" activeClassName="active">
+            Sales not fount
+          </NavLink>
+        </li>
+
+        <li>
+          <span>Private Rute</span>
+          <NavLink to="/dashboard" activeClassName="active">
+            Dashboard
+          </NavLink>
         </li>
       </ul>
+
+
     </nav>
   );
 };
