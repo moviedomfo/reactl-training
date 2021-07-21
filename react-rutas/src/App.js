@@ -1,4 +1,7 @@
 import './App.css';
+import CrudApi from './components/CrudApi';
+import SongSearch from './components/SongSearch';
+
 import MainContainer from './Pages/MainContainer';
 
 
@@ -6,7 +9,11 @@ import MainContainer from './Pages/MainContainer';
 function App() {
   return (
     <div >
-      <MainContainer></MainContainer> 
+
+      <CrudApi></CrudApi>
+      {/* <SongSearch></SongSearch> */}
+      <hr/>
+      {/* <MainContainer></MainContainer>  */}
     </div>
   );
 }
