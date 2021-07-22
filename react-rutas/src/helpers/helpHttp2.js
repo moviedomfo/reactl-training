@@ -1,7 +1,8 @@
-export const helpHttp = () => {
+export const helpHttp2 = () => {
 
   const customFetch = (endpoint, options) => {
     const defaultHeader = {
+      'rejectUnauthorized': false,
       accept: "application/json",
        "Access-Control-Allow-Origin": "*",
        "Access-Control-Allow-Methods": "all",
@@ -25,19 +26,40 @@ export const helpHttp = () => {
 
  
 
- 
-    return fetch(endpoint, options)
-      .then((res) =>
+      //let promise = 
+     return fetch(endpoint, defaultHeader)
+          .then(res =>            
+            //Operador Ternario
+             res.ok ? 
+              res.json()  
+              : 
+               Promise.reject({
+                err: true,
+                status: res.status || "00",
+                statusText: res.statusText || "Ocurrió un error",
+             }) 
+
+          ).catch(error => {
+            
+            return Promise.reject({
+                         err: true,
+                         status: error.status || "00",
+                         statusText: error.statusText || "Ocurrió un error",
+                       })
+          });
+  
+    // return fetch(endpoint, options)
+    //   .then((res) =>
       
-        res.ok
-          ? res.json()
-          : Promise.reject({
-              err: true,
-              status: res.status || "00",
-              statusText: res.statusText || "Ocurrió un error",
-            })
-      )
-      .catch((err) => err);
+    //     res.ok
+    //       ? res.json()
+    //       : Promise.reject({
+    //           err: true,
+    //           status: res.status || "00",
+    //           statusText: res.statusText || "Ocurrió un error",
+    //         })
+    //   )
+    //   .catch((err) => err);
   };
 
   const get = (url, options = {}) => customFetch(url, options);

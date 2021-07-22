@@ -3,12 +3,19 @@ import { helpHttp } from "../helpers/helpHttp";
 import Loader from "./Loader";
 import SongDetails from "./SongDetails";
 import SongForm from "./SongForm";
+import { HashRouter, NavLink, Route, Switch } from "react-router-dom";
+
+import Error404 from "../Pages/Error404";
+
+const mySongsInit = JSON.parse(localStorage.getItem ('mySongs')) || [];
 
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
   const [lyric, setLyric] = useState(null);
   const [bio, setBio] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [mySongs, setMySongs] = useState(mySongsInit);
+
 
   useEffect(() => {
     if (search === null) return;
@@ -36,23 +43,56 @@ const SongSearch = () => {
     };
 
     fetchData();
-  }, [search]);
+    
+    localStorage.setItem('mySongs',JSON.stringify(mySongs));
+  }, [search,mySongs]);
+
 
   const handleSearch = (data) => {
     //console.log(data);
     setSearch(data);
   };
 
+  const handleSearchSong = () => {
+    
+    
+  };
+  const handleDeleteSong = (id) => {
+    
+    alert('Guardando en favoritos');
+  };
   return (
     <div>
-      <h2>Song Search</h2>
-      <article className="grid-1-3">
-        <SongForm handleSearch={handleSearch} />
+      <HashRouter basename="canciones">
+        <header>
+          <h2>Song Search</h2>
+          <nav>
+            <NavLink to="/" activeClassName="active">
+              Home
+            </NavLink>
+           
+          </nav>
+        </header>
         {loading && <Loader />}
-        {search && !loading && (
-          <SongDetails search={search} lyric={lyric} bio={bio} />
-        )}
-      </article>
+        <Switch>
+          <Route exact path="/">
+            <article className="grid-1-3">
+              <SongForm handleSearch={handleSearch} />
+              
+              <h2>Tabla de canciones</h2>
+              {search && !loading && (
+                <SongDetails search={search} lyric={lyric} bio={bio} />
+              )}
+            </article>
+          </Route>
+          <Route exact path="/canciones/:id">
+            {/* componente que muestre la pagina de la cacion
+             */}
+             <h2>Pagina de cancion</h2>
+          </Route>
+          <Route exact path="*" children={<Error404></Error404>} />
+        </Switch>
+      </HashRouter>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const initailForm = {
   name: "",
@@ -8,6 +9,7 @@ const initailForm = {
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initailForm);
+  const history = useHistory()
 
   useEffect(() => {
     if (dataToEdit) {
@@ -44,6 +46,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const handleReset = (e) => {
     setForm(initailForm);
     setDataToEdit(null);
+    history.push('/'); //  si agregamos un nuevo item y luego se llama a este metodo nos redirije al home
   };
 
   return (

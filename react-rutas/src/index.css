@@ -31,8 +31,10 @@ html {
   }
   
   button,
+  input[type="text"],
   input[type="submit"],
-  input[type="reset"] {
+  input[type="reset"],
+  input[type="button"] {
     border: thin solid #444;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
@@ -49,7 +51,11 @@ html {
     vertical-align: middle;
     cursor: pointer;
   }
-  
+  input[type="button"]:disabled{
+    border-color: darkgray,.3;
+    color:grey.4;
+    background-color: darkkhaki,.3;
+  }
   form {
     margin-bottom: 1rem;
   }

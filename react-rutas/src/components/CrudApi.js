@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashRouter, NavLink, Route, Switch } from "react-router-dom";
-import { helpHttp } from "../helpers/helpHttp";
+//import { helpHttp } from "../helpers/helpHttp2";
+import { helpHttp2 } from "../helpers/helpHttp2";
 import Error404 from "../Pages/Error404";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
@@ -13,15 +14,35 @@ const CrudApi = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  let api = helpHttp();
-  let url = "http://localhost:5000/santos";
-
-  useEffect(() => {
+  let api = helpHttp2();
+  let url = "http://localhost:5300/santos";
+ useEffect(() => {
     setLoading(true);
-    helpHttp()
+
+  //   try {
+  //     //let promise = 
+  //     fetch(url, {
+  //             'rejectUnauthorized': false
+
+  //         })
+  //         .then(res => {           
+  //             return res.json()
+  //         })
+  //         .then(json => { 
+  //           setDb(json);
+  //           setError(null);
+  //         }).catch(error => {
+  //           setDb({});
+  //           setError(error);
+  //         });
+  // } catch (e) {
+  //     alert(e);
+  // }
+
+  helpHttp2()
       .get(url)
       .then((res) => {
-        //console.log(res);
+       
         if (!res.err) {
           setDb(res);
           setError(null);
@@ -32,6 +53,7 @@ const CrudApi = () => {
         setLoading(false);
       });
   }, [url]);
+
 
   const createData = (data) => {
     data.id = Date.now();
@@ -98,46 +120,56 @@ const CrudApi = () => {
   };
 
   return (
-    
     <div>
-   
       {/* basename : para que todas las rutas antelleven /santos */}
       <HashRouter basename="/santos">
-        <header>   <h2>CRUD API</h2></header>
+        <header>
+          <h2>CRUD API</h2>
+        </header>
         <nav>
-          <NavLink to="/" activeClassName="active">Santos</NavLink> 
-          <NavLink to="/agregar" activeClassName="active">Agregar</NavLink> 
+          <NavLink to="/" activeClassName="active">Home </NavLink>
+          <NavLink to="/agregar" activeClassName="active">
+            Agregar
+          </NavLink>
         </nav>
         <Switch>
-        <Switch>
-          <Route exact path="/" component = {CrudTable} /> 
-          <Route exact path="/agregar" component = {CrudForm} /> 
-          <Route exact path="/edit/:id" component = {CrudForm} /> 
-          <Route exact path="*" component = {Error404} /> 
-          </Switch>
+          <Route exact path="/">
+            {loading && <Loader />}
+            {error && (
+              <Message
+                msg={`Error ${error.status}: ${error.statusText}`}
+                bgColor="#dc3545"
+              />
+            )}
+            {db && (
+              <CrudTable
+                data={db}
+                setDataToEdit={setDataToEdit}
+                deleteData={deleteData}
+              />
+            )}
+          </Route>
+          <Route exact path="/agregar">
+            <CrudForm
+              key="CrudFormCreate"
+              createData={createData}
+              dataToEdit={dataToEdit}
+              setDataToEdit={setDataToEdit}
+            />
+          </Route>
+          <Route exact path="/editar/:id">
+            <CrudForm
+              key="CrudFormUpdate"
+              updateData={updateData}
+              dataToEdit={dataToEdit}
+              setDataToEdit={setDataToEdit}
+            />
+          </Route>
+          <Route exact path="*" component={Error404} />
         </Switch>
       </HashRouter>
       <article className="grid-1-2">
-        <CrudForm
-          createData={createData}
-          updateData={updateData}
-          dataToEdit={dataToEdit}
-          setDataToEdit={setDataToEdit}
-        />
-        {loading && <Loader />}
-        {error && (
-          <Message
-            msg={`Error ${error.status}: ${error.statusText}`}
-            bgColor="#dc3545"
-          />
-        )}
-        {db && (
-          <CrudTable
-            data={db}
-            setDataToEdit={setDataToEdit}
-            deleteData={deleteData}
-          />
-        )}
+        {/* {JSON.stringify(db)} */}
       </article>
     </div>
   );
