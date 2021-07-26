@@ -10,7 +10,7 @@ import SongTable from "./SongTable";
 import SongPage from "./SongPage";
 import { helpHttp } from "../../helpers/helpHttp";
 
-const mySongsInit = JSON.parse(localStorage.getItem ('mySongs')) || [];
+const mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
 
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
@@ -18,7 +18,6 @@ const SongSearch = () => {
   const [bio, setBio] = useState(null);
   const [loading, setLoading] = useState(false);
   const [mySongs, setMySongs] = useState(mySongsInit);
-
 
   useEffect(() => {
     if (search === null) return;
@@ -46,36 +45,39 @@ const SongSearch = () => {
     };
 
     fetchData();
-    
-    localStorage.setItem('mySongs',JSON.stringify(mySongs));
-  }, [search,mySongs]);
 
+    localStorage.setItem("mySongs", JSON.stringify(mySongs));
+  }, [search, mySongs]);
 
   const handleSearch = (data) => {
     //console.log(data);
     setSearch(data);
   };
 
-  const handleSearchSong = () => {
-
-    let newSong =  {
-      search,lyric,bio
+  const handleSavehSong = () => {
+    let newSong = {
+      search,
+      lyric,
+      bio,
     };
 
-    setMySongs(()=>[...mySongs,newSong]);
-
+    const newList = [...mySongs, newSong];
+    setMySongs(newList);
     setSearch(null);
-    
+
+    localStorage.setItem("mySongs", JSON.stringify(newList));
   };
-  
+
   const handleDeleteSong = (id) => {
-       let remove = window.confirm(`Seguro de eliminar la cancion con id : ${id} `);
-      if(remove){
-        let newList = mySongs.filter((el) => el.id !== id);
-        setMySongs(newList);
-        localStorage.setItem('mySongs',JSON.stringify(newList));
-      }
-    };
+    let remove = window.confirm(
+      `Seguro de eliminar la cancion con id : ${id} `
+    );
+    if (remove) {
+      let newList = mySongs.filter((el) => el.id !== id);
+      setMySongs(newList);
+      localStorage.setItem("mySongs", JSON.stringify(newList));
+    }
+  };
   return (
     <div>
       <HashRouter basename="canciones">
@@ -85,27 +87,33 @@ const SongSearch = () => {
             <NavLink to="/" activeClassName="active">
               Home
             </NavLink>
-           
           </nav>
         </header>
         {loading && <Loader />}
         <article className="grid-1-2">
-        <Switch>
-          <Route exact path="/">
-           
-              <SongForm handleSearch={handleSearch} />
-              <SongTable allSongs={mySongs} handleDeleteSong={handleDeleteSong}></SongTable>
+          <Switch>
+            <Route exact path="/">
+              <SongForm
+                handleSearch={handleSearch}
+                handleSavehSong={handleSavehSong}
+              />
+              <SongTable
+                allSongs={mySongs}
+                handleDeleteSong={handleDeleteSong}
+              ></SongTable>
 
               {search && !loading && (
                 <SongDetails search={search} lyric={lyric} bio={bio} />
               )}
-           
-          </Route>
-          
-          <Route exact path="/:id" children={<SongPage mySongs={mySongs}></SongPage> }
-          />
-          <Route exact path="*" children={<Error404/>} />
-        </Switch>
+            </Route>
+
+            <Route
+              exact
+              path="/:id"
+              children={<SongPage mySongs={mySongs}></SongPage>}
+            />
+            <Route exact path="*" children={<Error404 />} />
+          </Switch>
         </article>
       </HashRouter>
     </div>

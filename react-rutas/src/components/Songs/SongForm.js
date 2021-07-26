@@ -5,7 +5,7 @@ const initialForm = {
   song: "",
 };
 
-const SongForm = ({ handleSearch,handleSearchSong }) => {
+const SongForm = ({ handleSearch,handleSavehSong }) => {
   const [form, setForm] = useState(initialForm);
   const [isDisabled, setIsDisable] = useState(false);
 
@@ -49,9 +49,9 @@ const SongForm = ({ handleSearch,handleSearchSong }) => {
           value={form.song}
         />
         <input type="submit" value="Enviar" />
-        <input type="button" onClick={handleSearchSong} 
+        <input type="button" onClick={handleSavehSong} 
            disabled = {isDisabled && 'disabled'} 
-          value="Guardar cancion" />
+          value="Guardar cancion (la agrega al localStorage)" />
         
       </form>
     </div>
