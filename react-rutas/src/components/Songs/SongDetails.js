@@ -1,4 +1,4 @@
-import Message from "./Message";
+import Message from "../Message";
 import SongArtist from "./SongArtist";
 import SongLyric from "./SongLyric";
 

@@ -1,6 +1,6 @@
 import './App.css';
 import CrudApi from './components/CrudApi';
-import SongSearch from './components/SongSearch';
+import SongSearch from './components/Songs/SongSearch';
 
 import MainContainer from './Pages/MainContainer';
 

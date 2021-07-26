@@ -3,9 +3,9 @@ export const helpHttp = () => {
   const customFetch = (endpoint, options) => {
     const defaultHeader = {
       accept: "application/json",
-       "Access-Control-Allow-Origin": "*",
-       "Access-Control-Allow-Methods": "all",
-       " Access-Control-Allow-Headers": "*",
+      //  "Access-Control-Allow-Origin": "*",
+      //  "Access-Control-Allow-Methods": "all",
+      //  " Access-Control-Allow-Headers": "*",
     };
 
     const controller = new AbortController();
