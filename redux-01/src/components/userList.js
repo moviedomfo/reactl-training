@@ -1,39 +1,55 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, {  useEffect, Fragment } from "react";
+import {fetchAllUsers} from "../store/slices/users/usersSlice";
+import {useDispatch,useSelector} from 'react-redux';
 
-const list = [
-  {
-    id: 7,
-    email: "michael.lawson@reqres.in",
-    first_name: "Michael",
-    last_name: "Lawson",
-    avatar: "https://reqres.in/img/faces/7-image.jpg",
-  },
-  {
-    id: 8,
-    email: "lindsay.ferguson@reqres.in",
-    first_name: "Lindsay",
-    last_name: "Ferguson",
-    avatar: "https://reqres.in/img/faces/8-image.jpg",
-  },
-  {
-    id: 9,
-    email: "tobias.funke@reqres.in",
-    first_name: "Tobias",
-    last_name: "Funke",
-    avatar: "https://reqres.in/img/faces/9-image.jpg",
-  },
-];
+// const vvv = [
+// //   {
+// //     id: 7,
+// //     email: "michael.lawson@reqres.in",
+// //     first_name: "Michael",
+// //     last_name: "Lawson",
+// //     avatar: "https://reqres.in/img/faces/7-image.jpg",
+// //   },
+// //   {
+// //     id: 8,
+// //     email: "lindsay.ferguson@reqres.in",
+// //     first_name: "Lindsay",
+// //     last_name: "Ferguson",
+// //     avatar: "https://reqres.in/img/faces/8-image.jpg",
+// //   },
+// //   {
+// //     id: 9,
+// //     email: "tobias.funke@reqres.in",
+// //     first_name: "Tobias",
+// //     last_name: "Funke",
+// //     avatar: "https://reqres.in/img/faces/9-image.jpg",
+// //   },
+// ];
 const divStyle  = {
     width: '18rem',
 };
 
 const UserList = () => {
+  //state es lo que tiene el store
+    const {list} = useSelector(state => state.users);
+    const disp = useDispatch();
+
+    //1) Esto se ejecuta antes que 2
+    // useEfect vendrian a ser como los eventos esto ocurre al inicializar una sola vez
+    // Obtiene proyectos cuando carga el componente
+    useEffect(()=>{
+       disp(fetchAllUsers());
+    },[disp]);
+
+   
+
   return (
     <Fragment>
       <div className="row">
         <div className="col col-md-6">
           <ul className="list-group">
             {list.map((item, index) => (
+
               <li key={index} class="list-group-item">
                 {index} -- {item.first_name}{" "}
               </li>
