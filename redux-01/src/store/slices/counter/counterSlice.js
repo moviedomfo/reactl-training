@@ -1,16 +1,16 @@
-
-
 import { createSlice } from "@reduxjs/toolkit";
 
 
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
-    count:0
+    count:10,
+    userName :'Pensilvania'
   },
   reducers: {
     increment: (state) => {
       state.count +=1;
+      console.log('increment to ' + state.count);
     },
     decrement: (state) => {
       
@@ -25,8 +25,11 @@ export const counterSlice = createSlice({
 
 // exporta todas las acciones que podemos llamar en nuestra app
 export const { increment,decrement,customIncrement } = counterSlice.actions;
-export default counterSlice.reducer;
+
 
 export const incrementador = (req) => (dispatch) => {
     dispatch(customIncrement(req));
 };
+
+
+export default counterSlice.reducer;
