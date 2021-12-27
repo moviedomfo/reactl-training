@@ -1,12 +1,20 @@
 import React, {  useEffect, Fragment } from "react";
 import {fetchAllUsers} from "../store/slices/users/usersSlice";
 import {useDispatch,useSelector} from 'react-redux';
+import {PuntoA,PuntoB} from './clases'
+//import * as puntos  from './clases.js';
+
 
 const divStyle  = {
     width: '18rem',
 };
 
 const UserList = () => {
+    const p1 = new PuntoB(5, 5);
+    const p2 = new PuntoA(10, 10);
+    console.log( '--------PuntoB----------------' +  p1.getCoordenadas());
+    console.log( '--------PuntoA----------------' +  p2.getCoordenadas());
+    
     // state es lo que tiene el store
     const {list} = useSelector(state => state.users);
     const disp = useDispatch();

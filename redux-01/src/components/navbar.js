@@ -1,4 +1,5 @@
 import React from "react";
+
 const BarraNav = () => {
   return (
     <nav className="navbar navbar-dark bg-light ">

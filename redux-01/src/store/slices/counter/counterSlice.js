@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-export const counterSlice = createSlice({
+export const globalSlice = createSlice({
   name: "counter",
   initialState: {
     count:10,
@@ -24,7 +24,7 @@ export const counterSlice = createSlice({
 });
 
 // exporta todas las acciones que podemos llamar en nuestra app
-export const { increment,decrement,customIncrement } = counterSlice.actions;
+export const { increment,decrement,customIncrement } = globalSlice.actions;
 
 
 export const incrementador = (req) => (dispatch) => {
@@ -32,4 +32,4 @@ export const incrementador = (req) => (dispatch) => {
 };
 
 
-export default counterSlice.reducer;
+export default globalSlice.reducer;

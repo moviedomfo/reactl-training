@@ -14,7 +14,7 @@ const Contador = () => {
 //    const userName = 'pensilvania';
    const disp = useDispatch();
   // useEffect(()=>{
-  //     disp(increment());
+  
   //  },[disp]);
 
   const onClickIncrement = () => {
@@ -38,19 +38,19 @@ const Contador = () => {
 
         <form>
           <div className="row">
-            <div class="form-group col-4">
+            <div className="form-group col-4">
               <button
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 onClick={onClickIncrement}
               >
                 Increment
               </button>
             </div>
-            <div class="form-group col-4">
+            <div className="form-group col-4">
               <button
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 onClick={onClickDecrement}
               >
                 Decrement

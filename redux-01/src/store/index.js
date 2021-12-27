@@ -10,7 +10,6 @@ import users  from "./slices/users/usersSlice";
 // Reducer de estado global con varios reducer adentro
 // Este comp. hay q pasarlo a toda la App por medio de un provider
 // reparte todos los reducers slice que exitan
-
 export default configureStore({
   reducer: {
     users,
