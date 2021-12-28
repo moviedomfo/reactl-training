@@ -1,17 +1,56 @@
+
+
 .sidebar{
     flex: 1;
-}
-.sidebarWrapper{
-    
-}
-.sidebarTittle{
-    
-}
-.sidebarTittle{
+    height: calc(100vh-50px); 
+    height: 100vh;
+    background-color:whitesmoke;
+    position: sticky;
+    top: 50px;
 
+}
+
+.sidebarWrapper{
+    padding: 20px;
+    color: darkkhaki;
+    
+}
+.sidebarMenu{
+ margin-bottom: 10px;
+}
+
+.sidebarTittle{
+    list-style: none;
+    padding: 5px;
+}
+.sidebarList{
+    color: floralwhite;
+    font-size: 13px;
 }
 
 
 .sideBarItem{
+    padding: 5px;
+  color: #323632;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 9px;
 
+}
+.sideBarItem.active, 
+.sideBarItem:hover{
+    background-color: white;
+    font-weight: bold;
+    border-style: ridge;
+    border-color: salmon;
+    border-width: thin;
+
+}
+.sideBarItemText{
+    /* margin-left: 10px; */
+}
+.sideBarItemIcon{
+    margin-right: 5px;
+    font-size: medium;
 }

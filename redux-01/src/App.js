@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { Fragment } from "react";
 // import BarraNav from "./components/navbar";
 import UserList from "./components/userList";
