@@ -1,0 +1,62 @@
+.widgetSmall{
+    flex: 1;
+    box-shadow: 14px 30px 32px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 14px 30px 32px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px 30px 32px 1px rgba(0,0,0,0.75);
+    padding: 20px;
+    margin-right: 20px;
+}
+.widgetSmallTittle{
+
+    font-size: 32px;
+    font-weight: 600px;
+}
+
+.widgetSmallList{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+.widgetSmallListItem{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ margin: 20px 0px;
+}
+.wigetSmallImage{
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    font: 40px;
+    object-fit: cover;
+}
+.widgetSmallUser{
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.widgetSmallUserName{
+    font-weight: 600;
+}
+.widgetSmallUserJob{
+    font-weight: 600;
+}
+.widgetSmallButton{
+    display: flex;
+    align-items: center;
+    border:none;
+    border-radius: 10px;
+    padding: 7px 10px;
+    background-color: blanchedalmond;
+    color: darkblue;
+    cursor: pointer;
+}
+.widgetSmallButtonIcon{
+    font-size: 16px !important;
+    margin-right:5px;
+}

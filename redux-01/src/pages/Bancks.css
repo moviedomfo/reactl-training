@@ -1,0 +1,8 @@
+.banck{
+ flex: 4;
+}
+.banckWidget{
+
+        display: flex;
+        margin: 20px;
+}

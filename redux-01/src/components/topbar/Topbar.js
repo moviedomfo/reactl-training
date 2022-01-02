@@ -3,14 +3,10 @@ import "./Topbar.css";
 import { BsFillBadgeTmFill } from "react-icons/bs";
 import { MdNotificationsNone } from "react-icons/md";
 import { IoIosGitMerge, IoIosGitCompare } from "react-icons/io";
-
-import imgAvatar from "./../assets/avatar04.png";
-
-
+import imgAvatar from "./../../assets/avatar04.png";
 
 const Topbar = () => {
-  
-  return (
+    return (
     <div className="topbar">
       <div className="topbarWrpper">
         <div className="topLeft">

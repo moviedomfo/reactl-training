@@ -1,47 +1,52 @@
 import React from "react";
 import './sidebar.css';
 import { BsFillArchiveFill,BsFillCalendarRangeFill } from "react-icons/bs";
+import { HashRouter, NavLink, Route, Switch } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+
+<div className="sidebar">
         <div className="sidebarWrapper">
             <div className="sidebarMenu">
-            <h3 className="sidebarTittle">Contabilidad</h3> 
+            <h3 className="sidebarTittle">Accounting</h3> 
             <ul className="sidebarList">
                 <li className="sideBarItem">
                     <BsFillArchiveFill className="sideBarItemIcon"/>
-                    Item1
+                    Bancks
                 </li>
                 <li className="sideBarItem">
                 <BsFillCalendarRangeFill className="sideBarItemIcon"/>
-                    Item2
+                Checks
                 </li>
                 <li className="sideBarItem">
                 <BsFillCalendarRangeFill className="sideBarItemIcon"/>
-                  Elemento
+                  Balance
                 </li>
                 </ul> 
         </div> 
         <div className="sidebarMenu">
-            <h3 className="sidebarTittle">Estadisticas</h3> 
+            <h3 className="sidebarTittle">Statistics</h3> 
             <ul className="sidebarList">
                 <li className="sideBarItem">
                     <BsFillArchiveFill className="sideBarItemIcon"/>
-                    Item1
+                    Sales
                 </li>
                 <li className="sideBarItem">
                 <BsFillCalendarRangeFill className="sideBarItemIcon"/>
-                    Item2
+                    Analytics
                 </li>
                 <li className="sideBarItem active">
                 <BsFillCalendarRangeFill className="sideBarItemIcon"/>
-                   <span className="sideBarItemText">Item3</span> 
+                   Products
                 </li>
                 </ul> 
         </div> 
         </div>    
     </div>
+
+
+  
   );
 };
 
