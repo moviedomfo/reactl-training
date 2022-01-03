@@ -15,7 +15,7 @@ export const userSlice = createSlice({
       state.value = action.payload;
     }
   },
-});
+}); 
 
 export const { setUserList,fetchAll } = userSlice.actions;
 

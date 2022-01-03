@@ -1,17 +1,24 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import  './Users.css';
-import {getPlanillasList} from "../store/slices/planillasSlice";
+import {getPlanillasList} from "../../store/slices/planillasSlice";
+
+
 
 const Users= () => {    
 
-    const {plantillasList} = useSelector(state => state.plantillasList);
+    const {plantillasList} = useSelector(state => state.planilladaList);
     
     const disp = useDispatch();
 
     const onClickfetchAll = () => {
         disp(getPlanillasList());
       };
+  
+    useEffect(()=>{
+        disp(getPlanillasList());
+    },[disp]);
+
     return (
         <div className='pageContent'>
             <h3 className='pageTitle'>Users Page</h3>
@@ -43,14 +50,22 @@ const Users= () => {
         </div>    
         <div className="row">
             <div className="col col-md-6">
-            <ul className="list-group">
-                {plantillasList.map((item, index) => (
+            
+                <ul className="list-group">
+                {   
+                    plantillasList ? 
+                    <li className="list-group-item"><p>Nada de tareas</p></li>
+                    :
+                    plantillasList.map((item, index) => (
+                        <li key={index} class="list-group-item">
+                            {index} -- {item.first_name}{" "}
+                        </li>
+                    ))
 
-                <li key={index} class="list-group-item">
-                    {index} -- {item.first_name}{" "}
-                </li>
-                ))}
-            </ul>
+                }
+                </ul>
+                
+            
             </div>
         </div>
         </div>

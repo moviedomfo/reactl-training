@@ -1,5 +1,5 @@
 import React, {  useEffect, Fragment } from "react";
-import {fetchAllUsers} from "../store/slices/users/usersSlice";
+import {fetchAllUsers} from "../store/slices/usersSlice";
 import {useDispatch,useSelector} from 'react-redux';
 import {PuntoA,PuntoB} from './clases'
 //import * as puntos  from './clases.js';
