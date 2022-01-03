@@ -2,8 +2,14 @@
   display: flex;
   margin-top: 10px;
 }
-.others{
-  flex:4;
-  background-color: cadetblue;
+.pageContent{
+  flex: 4;
+  background-color: #eaeeee;
+}
 
+
+.pageTitle{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: darkslategray;
 }

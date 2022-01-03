@@ -6,7 +6,7 @@ export default function FeatureInfo() {
   return (
     <div className="featureInfo">
       <div className="featureInfoItem">
-        <div className="featureInfoTittle">Moom </div>
+        <div className="featureInfoTitle">Moom </div>
         <div className="featureInfoBody">
           <div className="featureMoney">$43.786</div>
           <div className="featureMoneyRate">
@@ -19,7 +19,7 @@ export default function FeatureInfo() {
       </div>
 
       <div className="featureInfoItem">
-        <div className="featureInfoTittle">Ethereum</div>
+        <div className="featureInfoTitle">Ethereum</div>
         <div className="featureInfoBody">
           <div className="featureMoney">$2323.786</div>
           <div className="featureMoneyRate">

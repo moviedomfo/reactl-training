@@ -2,21 +2,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const userList = [];
 
 export const userSlice = createSlice({
   name: "users",
-  initialState: {
-    list: []
-    
-  },
+  initialState: userList,
   reducers: {
     setUserList: (state, action) => {
-      state.list = action.payload;
+      state.value = action.payload;
+    },
+    fetchAll:(state, action) => {
+      state.value = action.payload;
     }
   },
 });
 
-export const { setUserList } = userSlice.actions;
+export const { setUserList,fetchAll } = userSlice.actions;
+
 
 export const fetchAllUsers = () => (dispatch) => {
   axios

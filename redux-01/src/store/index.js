@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import users  from "./slices/users/usersSlice";
- import counter   from "./slices/counter/counterSlice";
- import userName   from "./slices/counter/counterSlice";
+import users  from "./slices/usersSlice";
+ import counter   from "./slices/counterSlice";
+ import userName   from "./slices/counterSlice";
+ import {planilladaList }  from "./slices/planillasSlice";
 
 // import userSlice  from "./slices/users/usersSlice";
 // import users from './slices/users';
@@ -14,6 +15,7 @@ export default configureStore({
   reducer: {
     users,
     counter,
-    userName
+    userName,
+    planilladaList
   },
 });

@@ -5,7 +5,7 @@ import { GrView } from 'react-icons/gr';
 export default function WidgetSmall() {
     return (
         <div className='widgetSmall'>
-            <span className='widgetSmallTittle'>Hola Wi Small</span>
+            <span className='widgetSmallTitle'>Hola Wi Small</span>
             <ul className='widgetSmallList'>
                 <li className='widgetSmallListItem'>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-k7l1WzfFSEkq1ZnxSDW1BQyS-X5UYnDKpQ&usqp=CAU" 

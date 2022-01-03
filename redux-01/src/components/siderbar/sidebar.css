@@ -19,7 +19,7 @@
  margin-bottom: 10px;
 }
 
-.sidebarTittle{
+.sidebarTitle{
     list-style: none;
     padding: 5px;
 }
@@ -29,7 +29,7 @@
 }
 
 
-.sideBarItem{
+.sideBarItem {
     padding: 5px;
   color: #323632;
   cursor: pointer;
@@ -38,6 +38,15 @@
   border-radius: 9px;
 
 }
+.sideBarItem a{
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 9px;
+    font-size: 13px;
+    color: #323632;
+} 
+
 .sideBarItem.active, 
 .sideBarItem:hover{
     background-color: white;
@@ -47,6 +56,7 @@
     border-width: thin;
 
 }
+
 .sideBarItemText{
     /* margin-left: 10px; */
 }

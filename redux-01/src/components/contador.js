@@ -4,7 +4,7 @@ import {
   increment,
   decrement,
   customIncrement,
-} from "../store/slices/counter/counterSlice";
+} from "../store/slices/counterSlice";
 
 const Contador = () => {
   // hook that allow us to read the state 'counter' from reducer
