@@ -18,21 +18,15 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-    
         <Topbar></Topbar>
-     
         <div className="container">
         <Sidebar />
         <Routes>
-         
-          
               <Route exact path="/" element={<Home />}></Route> 
               <Route path="/bancks" element={<Bancks />}></Route>
               <Route path="/users" element={<Users />}/>
               <Route path="/balance" element={<Balance />}/>
-
-            
-            </Routes>
+          </Routes>
           </div>
         {/* <Contador />
         <UserList />   */}

@@ -1,27 +1,14 @@
-import React,{useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import UserList from "../../components/userList";
 import  './Users.css';
-import {getPlanillasList} from "../../store/slices/planillasSlice";
-
-
 
 const Users= () => {    
-
-    const {plantillasList} = useSelector(state => state.planilladaList);
-    
-    const disp = useDispatch();
-
-    const onClickfetchAll = () => {
-        disp(getPlanillasList());
-      };
-  
-    useEffect(()=>{
-        disp(getPlanillasList());
-    },[disp]);
 
     return (
         <div className='pageContent'>
             <h3 className='pageTitle'>Users Page</h3>
+
+            <UserList></UserList>
         <form className='pageForm'>
             <div className='userFormItem'>
                     <label>Nombre</label>
@@ -32,42 +19,23 @@ const Users= () => {
                     <label>Apellido</label>
                     <input type='Text' placeholder=' Trick'></input>
             </div>
-            <div className='userFormItem'>
+            {/* <div className='userFormItem'>
                     <button type='button' 
                      className="btn btn-primary"
                     onClick={onClickfetchAll}>Aceptar</button>
-            </div>
+            </div> */}
 
             {/* <input type="button" >Acept</input> */}
         </form>
         <div className="plntillasList">
         <div className="row">
-        <div className='userFormItem'>
+        {/* <div className='userFormItem'>
                     <button type='button' 
                      className="btn btn-primary"
                     onClick={onClickfetchAll}>Buscar plantillas</button>
             </div>
-        </div>    
-        <div className="row">
-            <div className="col col-md-6">
-            
-                <ul className="list-group">
-                {   
-                    plantillasList ? 
-                    <li className="list-group-item"><p>Nada de tareas</p></li>
-                    :
-                    plantillasList.map((item, index) => (
-                        <li key={index} class="list-group-item">
-                            {index} -- {item.first_name}{" "}
-                        </li>
-                    ))
-
-                }
-                </ul>
-                
-            
-            </div>
-        </div>
+           */}
+      </div>  
         </div>
         </div>
     )

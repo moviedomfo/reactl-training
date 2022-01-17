@@ -13,6 +13,7 @@ const Contador = () => {
  const {count} = useSelector(state => state.counter);
 //    const userName = 'pensilvania';
    const disp = useDispatch();
+
   // useEffect(()=>{
   
   //  },[disp]);
@@ -21,6 +22,7 @@ const Contador = () => {
     
     disp(increment());
   };
+
   const onClickDecrement = () => {
 
     console.log(count);
@@ -57,6 +59,7 @@ const Contador = () => {
               </button>
             </div>
           </div>
+    
         </form>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import users  from "./slices/usersSlice";
 import counter   from "./slices/counterSlice";
-import userRed   from "./slices/counterSlice";
+import userRed   from "./slices/usersSlice";
 import planilladaList  from "./slices/planillasSlice";
  
 // import userSlice  from "./slices/users/usersSlice";

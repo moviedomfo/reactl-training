@@ -15,8 +15,11 @@ const UserList = () => {
     console.log( '--------PuntoB----------------' +  p1.getCoordenadas());
     console.log( '--------PuntoA----------------' +  p2.getCoordenadas());
     
-    // state es lo que tiene el store
-    const {list} = useSelector(state => state.users);
+    // apply destructuring javascript from reducer
+    const {userList} = useSelector(state => state.userRed);
+
+    
+
     const disp = useDispatch();
 
     //1) Esto se ejecuta antes que 2
@@ -33,7 +36,7 @@ const UserList = () => {
       <div className="row">
         <div className="col col-md-6">
           <ul className="list-group">
-            {list.map((item, index) => (
+            {userList.map((item, index) => (
 
               <li key={index} class="list-group-item">
                 {index} -- {item.first_name}{" "}
@@ -42,7 +45,7 @@ const UserList = () => {
           </ul>
         </div>
         <div  className="col col-md-6">
-            {list.map((item, index) => (
+            {userList.map((item, index) => (
                 <div key={item.id} className="card" style={divStyle }>
                 <img src={item.avatar} className="card-img-top" alt="{item.last_name}"></img>
                 <div className="card-body">
