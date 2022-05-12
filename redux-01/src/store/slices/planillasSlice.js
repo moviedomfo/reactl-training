@@ -46,7 +46,7 @@ export const setPlanillas = () => (dispatch) => {
     .catch((error) => console.log(error));
 };
 
-// export all redux acrtions from the slice
+// export all redux actions from the slice
 export const { setPlanillasList,getPlanillasList } = planillasSlice.actions;
 
 export const getPlanillas = () => (dispatch) => {
