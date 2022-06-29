@@ -4,7 +4,7 @@ import axios from "axios";
 
 const baseUrl_planillas = "http://localhost:8060/api/mates";
 
-export const x= [
+export const fakeTemplates= [
   {
     "idMate": 2,
     "numero" :"8000",
@@ -40,24 +40,18 @@ export const setPlanillas = () => (dispatch) => {
   axios
     .get(  `${baseUrl_planillas}/getAll`)
     .then((response) => {
-      alert(response);
+      
        dispatch(setPlanillasList(response));
     })
     .catch((error) => console.log(error));
 };
+export const getPlanillas = () => (dispatch) => {
+  dispatch(setPlanillasList(fakeTemplates));
+
+};
 
 // export all redux actions from the slice
 export const { setPlanillasList,getPlanillasList } = planillasSlice.actions;
-
-export const getPlanillas = () => (dispatch) => {
-  dispatch(setPlanillasList(x));
-   // axios
-  //   .get(  `${baseUrl_planillas}/getAll`)
-  //   .then((response) => {
-      //dispatch(getPlanillasList(x));
-  //   })
-  //   .catch((error) => console.log(error));
-};
 
 
 // export reducers
